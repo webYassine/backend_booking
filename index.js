@@ -7,7 +7,7 @@ const BookingRouter = require("./router/bookingRouter")
 require("dotenv").config()
 const app = express()
 const port = process.env.port || 5555  
-const db = process.env.DB || "mongodb://localhost:27017/Booking"
+const db = process.env.DB 
 app.use(express.json()) 
 app.use('/hotels' , HotelRouter) 
 app.use('/rooms' , RoomRouter) 
