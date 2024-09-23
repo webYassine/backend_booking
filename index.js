@@ -4,11 +4,10 @@ const mongoose  = require('mongoose')
 const RoomRouter = require("./router/roomRouter")
 const AuthRouter = require("./router/authRouter")
 const BookingRouter = require("./router/bookingRouter")
-
+require("dotenv").config()
 const app = express()
-
-const port = 5555 
-const db = "mongodb://localhost:27017/Booking"
+const port = process.env.port || 5555  
+const db = process.env.DB || "mongodb://localhost:27017/Booking"
 app.use(express.json()) 
 app.use('/hotels' , HotelRouter) 
 app.use('/rooms' , RoomRouter) 
