@@ -2,7 +2,7 @@ const Room = require("../model/room")
 
 async function FindAllRoom(req ,res){
  try{
-const rooms =  await Room.find()
+const rooms =  await Room.find().populate('hotelName')
  res.status(200).send({"message" : "Rooms Find with success" , data : rooms})
  }catch(error){
      console.log(error)
