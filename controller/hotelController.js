@@ -23,10 +23,7 @@ async function FindOneHotel(req ,res){
 }
 async function CreateHotel(req ,res){
            console.log(req.body);
-           const hotel = {
-            name : req.body.name , 
-            description : req.body.description
-           }
+     
            
     try{
        const hotel =  await  Hotel.create(req.body)

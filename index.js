@@ -4,10 +4,13 @@ const mongoose  = require('mongoose')
 const RoomRouter = require("./router/roomRouter")
 const AuthRouter = require("./router/authRouter")
 const BookingRouter = require("./router/bookingRouter")
+const cors  = require("cors")
+app.use(cors()) 
+
 require("dotenv").config()
 const app = express()
 const port = process.env.port || 5555  
-const db = process.env.DB 
+const db = process.env.DB
 app.use(express.json()) 
 app.use('/hotels' , HotelRouter) 
 app.use('/rooms' , RoomRouter) 
