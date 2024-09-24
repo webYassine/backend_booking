@@ -11,7 +11,7 @@ const rooms =  await Room.find().populate('hotelName')
 }
 async function FindOneRoom(req ,res){
     try{
-       const room =  await Room.findOne({_id : req.params.id}).populate('hotel')
+       const room =  await Room.findOne({_id : req.params.id}).populate('hotelName')
    if(!room){
     return res.status(404).send({"message" : "room not found" })
    }
