@@ -9,6 +9,22 @@ const rooms =  await Room.find().populate('hotelName')
  }
 
 }
+
+// get rooms available
+async function FindAvailableRoom(req,res) {
+    try {
+      const availableRooms = await Room.find({ isAvailable: true });
+      res.status(200).json({
+        message: 'Available rooms fetched successfully',
+        data: availableRooms,
+      });
+    } catch (error) {
+      res.status(500).json({
+        message: 'Error fetching available rooms',
+        error: error.message,
+      });
+    }
+  }
 async function FindOneRoom(req ,res){
     try{
        const room =  await Room.findOne({_id : req.params.id}).populate('hotelName')
@@ -67,5 +83,5 @@ async function DeleteRoom(req ,res){
 }
 
 module.exports  = {
-    FindAllRoom , FindOneRoom , CreateRoom , UpdateRoom , DeleteRoom    
+    FindAllRoom , FindOneRoom , CreateRoom , UpdateRoom , DeleteRoom ,FindAvailableRoom   
 }

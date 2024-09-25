@@ -23,7 +23,10 @@ const roomSchema = mongoose.Schema({
     type: Number,
     required: true,
   },
-
+  isAvailable: {
+    type: Boolean,
+    default: true,
+  },
 }, {
   timestamps: true,
 });
