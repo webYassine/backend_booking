@@ -1,4 +1,3 @@
-const { error } = require("selenium-webdriver");
 const Booking = require("../model/booking");
 const Room = require("./../model/room");
 const mongoose = require("mongoose")
