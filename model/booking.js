@@ -10,3 +10,4 @@ const Booking = mongoose.model("Booking" , bookingSchema )
 
 module.exports = Booking
 
+

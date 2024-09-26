@@ -1,8 +1,10 @@
 const express = require("express")
-const {CreateBooking} = require("../controller/bookingController")
+const {CreateBooking , FindBooking} = require("../controller/bookingController")
 const { auth } = require("../midellwares/auth")
 const BookingRouter = express.Router()
-BookingRouter.post('/'  ,  auth ,CreateBooking)
+BookingRouter.post('/'     ,CreateBooking)
+BookingRouter.get('/'     ,FindBooking)
+
 
 
 module.exports  = BookingRouter

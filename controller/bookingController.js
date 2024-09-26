@@ -1,3 +1,4 @@
+const { error } = require("selenium-webdriver");
 const Booking = require("../model/booking");
 const Room = require("./../model/room");
 const mongoose = require("mongoose")
@@ -32,7 +33,19 @@ async function CreateBooking(req ,res){
  }
 
 }
+async function FindBooking (req,res){
+try{
+   const booking = await Booking.find().populate("room")
+   if(!booking){
+    return res.status(404).send({message: "Booking not found"})
+   }
+     res.status(200).send({message : "booking find with success" , data : booking})
+}catch(err){
+    console.error(err)
+    res.status(500).send({"error" : err.message})
 
+}
+}
 module.exports  = {
-    CreateBooking
+    CreateBooking , FindBooking
 }
